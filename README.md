@@ -46,7 +46,11 @@ This will give you a trivy-based prompt, where you can run:
 
 ```bash
 / # trivy fs /app/go
+```
 
+Which will result in:
+
+```bash
 go.mod (gomod)
 
 Total: 2 (UNKNOWN: 0, LOW: 1, MEDIUM: 0, HIGH: 0, CRITICAL: 1)
@@ -57,6 +61,7 @@ Total: 2 (UNKNOWN: 0, LOW: 1, MEDIUM: 0, HIGH: 0, CRITICAL: 1)
 │ github.com/emicklei/go-restful │ CVE-2022-1996  │ CRITICAL │ 2.15.0+incompatible │ 2.16.0        │ go-restful: Authorization Bypass Through User-Controlled Key │
 │                                │                │          │                     │               │ https://avd.aquasec.com/nvd/cve-2022-1996                    │
 ├────────────────────────────────┼────────────────┼──────────┼─────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
-
 ```
+
+.. which is a false positive, as the compiled binary is not exposed to this vulnerability.
 
